@@ -6,6 +6,20 @@
 <title>Princess Danna · 43ver 💜</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
+  /* ── GALLERY STYLES ── */
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .media-item {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s ease;
+  }
+  .media-item:hover { transform: scale(1.02); }
   :root {
     --rose: #e8a0bf;
     --rose-deep: #c96a9a;
@@ -622,7 +636,23 @@
   </div>
 </section>
 
-<div class="divider">· · · ∞ · · ·</div>
+<!-- ── GALLERY SECTION ── -->
+<section id="gallery">
+  <div class="section-inner">
+    <p class="section-label">Nuestros recuerdos</p>
+    <h2 class="section-title">Instantes en <em>movimiento</em></h2>
+    
+    <div class="media-grid">
+      <img src="assets/foto1.jpg.jpg" alt="Recuerdo especial" class="media-item">
+      <img src="assets/foto2.jpg.jpg" alt="Recuerdo especial" class="media-item">
+      <img src="assets/foto3.jpg.jpg" alt="Recuerdo especial" class="media-item">
+      <img src="assets/foto4.jpg.jpg" alt="Recuerdo especial" class="media-item">
+      <img src="assets/foto5.jpg.jpg" alt="Recuerdo especial" class="media-item">
+      <img src="assets/foto6.jpg.jpg" alt="Recuerdo especial" class="media-item">
+    </div>
+  </div>
+</section>
+  <div class="divider">· · · ∞ · · ·</div>
 
 <!-- ── SYMBOLS ── -->
 <section id="symbols">
