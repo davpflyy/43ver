@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Princess Danna · 43ver 💜</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #e8a0bf;
+    --rose-deep: #c96a9a;
+    --rose-pale: #f5d5e8;
+    --blush: #fce8f3;
+    --purple: #9b5de5;
+    --purple-light: #c9a9f5;
+    --gold: #d4a847;
+    --dark: #1a0a12;
+    --darker: #0d0508;
+    --white: #fefaf8;
+    --ink: #2a1520;
+    --glass: rgba(255,255,255,0.06);
+    --glass-border: rgba(232,160,191,0.2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--darker);
+    color: var(--white);
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext y='16' font-size='16'%3E💜%3C/text%3E%3C/svg%3E") 10 10, auto;
+  }
+
+  /* ── PARTICLES / BG ── */
+  #particles {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+  }
+  .petal {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50% 0 50% 0;
+    opacity: 0;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0%   { transform: translateY(-20px) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(155,93,229,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(232,160,191,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 60%, rgba(201,106,154,0.1) 0%, transparent 60%),
+      linear-gradient(160deg, #0d0508 0%, #1a0a12 40%, #120818 100%);
+  }
+  .hero-ornament {
+    position: absolute;
+    font-size: 180px;
+    opacity: 0.04;
+    font-family: 'Cormorant Garamond', serif;
+    user-select: none;
+    animation: floatSlow 8s ease-in-out infinite;
+  }
+  .hero-ornament:nth-child(1) { top: -40px; left: -40px; }
+  .hero-ornament:nth-child(2) { bottom: -40px; right: -40px; animation-delay: -4s; }
+  @keyframes floatSlow {
+    0%,100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose);
+    border: 1px solid var(--glass-border);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    animation: fadeUp 1s ease both;
+  }
+  .hero-title {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    line-height: 1.0;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    animation: fadeUp 1s ease 0.2s both;
+    text-shadow: 0 0 60px rgba(232,160,191,0.3);
+  }
+  .hero-title span { color: var(--rose); font-style: italic; }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    font-style: italic;
+    color: var(--purple-light);
+    margin-top: 1rem;
+    animation: fadeUp 1s ease 0.4s both;
+    letter-spacing: 0.05em;
+  }
+  .hero-nicks {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center;
+    margin-top: 2rem;
+    animation: fadeUp 1s ease 0.6s both;
+  }
+  .nick {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    background: var(--glass);
+    color: var(--rose-pale);
+    font-weight: 300;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s;
+  }
+  .nick:hover {
+    background: rgba(232,160,191,0.15);
+    border-color: var(--rose);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  .hero-43 {
+    margin-top: 3rem;
+    animation: fadeUp 1s ease 0.8s both;
+  }
+  .number-43 {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(4rem, 12vw, 8rem);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--rose);
+    opacity: 0.4;
+    line-height: 1;
+    animation: pulse43 4s ease-in-out infinite;
+  }
+  @keyframes pulse43 {
+    0%,100% { opacity: 0.4; text-shadow: none; }
+    50% { opacity: 0.7; text-shadow: 0 0 40px rgba(232,160,191,0.4); }
+  }
+  .label-43 {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    font-weight: 300;
+  }
+  .scroll-hint {
+    position: absolute; bottom: 2rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    animation: fadeUp 1s ease 1.2s both;
+    color: var(--rose);
+    opacity: 0.5;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--rose), transparent);
+    animation: scrollAnim 2s ease-in-out infinite;
+  }
+  @keyframes scrollAnim {
+    0%,100% { transform: scaleY(1); opacity: 0.5; }
+    50% { transform: scaleY(1.5); opacity: 1; }
+  }
+
+  /* ── SECTION SHARED ── */
+  section {
+    position: relative; z-index: 1;
+    padding: 6rem 1.5rem;
+  }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 400;
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--glass-border), transparent);
+  }
+  .section-title {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 3rem;
+    color: var(--white);
+  }
+  .section-title em { color: var(--rose); font-style: italic; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    color: var(--rose);
+    opacity: 0.4;
+    letter-spacing: 1rem;
+  }
+
+  /* ── TIMELINE ── */
+  #timeline { background: linear-gradient(180deg, var(--darker) 0%, #160b1a 50%, var(--darker) 100%); }
+  .timeline-track {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline-track::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--rose-deep), var(--purple), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+    padding-left: 2rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot {
+    position: absolute;
+    left: -2rem; top: 0.3rem;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--rose-deep);
+    box-shadow: 0 0 0 4px rgba(201,106,154,0.2), 0 0 20px rgba(201,106,154,0.4);
+    transform: translateX(-6px);
+  }
+  .timeline-date {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    font-weight: 300;
+    margin-bottom: 0.4rem;
+  }
+  .timeline-event {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-desc {
+    font-size: 0.82rem;
+    color: rgba(254,250,248,0.55);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── LOVE CARDS ── */
+  #love { background: var(--darker); }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+  .love-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s;
+  }
+  .love-card.visible { opacity: 1; transform: translateY(0); }
+  .love-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(155,93,229,0.15);
+    border-color: rgba(232,160,191,0.4);
+  }
+  .card-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+  .card-title {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.1rem;
+    color: var(--rose);
+    margin-bottom: 0.5rem;
+  }
+  .card-text {
+    font-size: 0.8rem;
+    color: rgba(254,250,248,0.6);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── MUSIC ── */
+  #music {
+    background: linear-gradient(180deg, var(--darker) 0%, #0f0615 50%, var(--darker) 100%);
+    text-align: center;
+  }
+  .spotify-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(155,93,229,0.25);
+    border: 1px solid var(--glass-border);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .spotify-wrap iframe {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+  .music-note {
+    margin-top: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--purple-light);
+    opacity: 0.7;
+  }
+
+  /* ── SYMBOLS ── */
+  #symbols { background: var(--darker); }
+  .symbols-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .symbol-item {
+    padding: 2.5rem 1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s;
+  }
+  .symbol-item.visible { opacity: 1; transform: scale(1); }
+  .symbol-item:hover { transform: scale(1.05); box-shadow: 0 10px 40px rgba(232,160,191,0.15); }
+  .symbol-glyph {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+  .symbol-name {
+    font-family: 'IM Fell English', serif;
+    font-size: 1rem;
+    color: var(--rose);
+    margin-bottom: 0.4rem;
+  }
+  .symbol-meaning {
+    font-size: 0.72rem;
+    color: rgba(254,250,248,0.5);
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CLOSING ── */
+  #closing {
+    min-height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 4rem 1.5rem;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(155,93,229,0.2) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(232,160,191,0.08) 0%, transparent 60%),
+      var(--darker);
+  }
+  .closing-inner { max-width: 700px; }
+  .closing-roman {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-style: italic;
+    color: var(--purple-light);
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+  }
+  .closing-sig {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: var(--rose);
+    letter-spacing: 0.05em;
+  }
+  .closing-43 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    color: var(--purple-light);
+    margin-top: 1rem;
+    opacity: 0.6;
+    font-style: italic;
+  }
+  .heart-beat {
+    font-size: 3rem;
+    display: block;
+    margin: 2rem auto;
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    14% { transform: scale(1.2); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.15); }
+    70% { transform: scale(1); }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--darker); }
+  ::-webkit-scrollbar-thumb { background: var(--rose-deep); border-radius: 2px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .symbols-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 4rem 1.2rem; }
+    .hero-nicks { gap: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament">❧</div>
+  <div class="hero-ornament">❧</div>
+
+  <div class="badge">05 · noviembre · 2023 — 43ver 💜</div>
+
+  <h1 class="hero-title">
+    Princess<br><span>Danna</span>
+  </h1>
+
+  <p class="hero-sub">Danna Gabriela Anaya Osorio</p>
+
+  <div class="hero-nicks">
+    <span class="nick">My Cinderella</span>
+    <span class="nick">Mi Negrita</span>
+    <span class="nick">Minodualidad</span>
+    <span class="nick">Mi Hilo Rojo</span>
+  </div>
+
+  <div class="hero-43">
+    <div class="number-43">43</div>
+    <p class="label-43">por siempre = 43ver</p>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; font-weight:300;">Scroll</span>
+  </div>
+</section>
+
+<!-- ── TIMELINE ── -->
+<section id="timeline">
+  <div class="section-inner">
+    <p class="section-label">Nuestra historia</p>
+    <h2 class="section-title">Los momentos que<br><em>nos construyeron</em></h2>
+
+    <div class="timeline-track">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">05 Noviembre · 2023</p>
+        <h3 class="timeline-event">El universo nos puso en el mismo lugar</h3>
+        <p class="timeline-desc">El día que todo comenzó. Sin saberlo, ese encuentro iba a cambiar la historia de los dos. Desde ese instante, el hilo rojo ya estaba tejido.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">Los descansos del colegio</p>
+        <h3 class="timeline-event">El servicio social más mentiroso del mundo</h3>
+        <p class="timeline-desc">Me metía al colegio con la excusa del servicio social solo para verte un momento. Cada segundo robado valía todo el riesgo. Ya me tenías loco desde antes de saber que me tenías loco.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">Los quince años</p>
+        <h3 class="timeline-event">La noche que bailamos y no importó nadie más</h3>
+        <p class="timeline-desc">Te vi tan hermosa esa noche. Ni tu hermana intentando alejarnos pudo con lo que se sentía en esa pista. Bailamos como si el mundo fuera solo nuestro, porque lo era.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">El día de Mundo Aventura</p>
+        <h3 class="timeline-event">Hasta los finales difíciles valen la pena contigo</h3>
+        <p class="timeline-desc">Terminó mal, sí. Pero cada hora que pasamos ahí, cada risa, cada momento juntos, me importó más que el final. Porque contigo el camino siempre vale más que el destino.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">Saltándote el colegio</p>
+        <h3 class="timeline-event">Mi casa, tú, y ningún reloj que importara</h3>
+        <p class="timeline-desc">Te viniste a quedar un rato. Ese tiempo fue de los más nuestros que hemos tenido. El mundo afuera con sus reglas, nosotros adentro con las nuestras.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">31 de Diciembre · 2024</p>
+        <h3 class="timeline-event">El año nuevo más hermoso</h3>
+        <p class="timeline-desc">Antes de medianoche, con ese conjunto rojo, te veías tan hermosa que el año que llegaba ya no me importaba tanto como el momento que estaba viviendo. Eso no se olvida jamás.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--purple); box-shadow: 0 0 0 4px rgba(155,93,229,0.2), 0 0 20px rgba(155,93,229,0.4);"></div>
+        <p class="timeline-date">Ahora · A la distancia</p>
+        <h3 class="timeline-event">Meditando juntos aunque no estemos juntos</h3>
+        <p class="timeline-desc">Videollamadas donde meditamos al mismo tiempo. Separados por kilómetros pero en el mismo silencio. Me estoy construyendo mejor para cuando llegue el momento de estar contigo bien y para siempre.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider">· · · 💜 · · ·</div>
+
+<!-- ── LOVE CARDS ── -->
+<section id="love">
+  <div class="section-inner">
+    <p class="section-label">Lo que me hace amarte</p>
+    <h2 class="section-title">Cosas que amo<br><em>de ti</em></h2>
+
+    <div class="cards-grid">
+
+      <div class="love-card">
+        <span class="card-icon">👁️</span>
+        <h3 class="card-title">Tus ojos</h3>
+        <p class="card-text">Tus ojos no solo miran — iluminan. Cada vez que los encuentro siento que hay un universo entero ahí dentro que solo yo tengo el privilegio de ver.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">🎨</span>
+        <h3 class="card-title">Tu alma artista</h3>
+        <p class="card-text">Amas el arte, haces manualidades, me regalas pedazos de tu creatividad. Cada cosa que creas con tus manos lleva algo de ti, y yo lo guardo como si fuera oro.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">⚖️</span>
+        <h3 class="card-title">Tu vocación</h3>
+        <p class="card-text">Quieres ser abogada. Esa determinación me enamora. Vas a defender lo que es justo con esa misma intensidad con que amas, y el mundo lo va a notar.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">🌱</span>
+        <h3 class="card-title">Cómo creces</h3>
+        <p class="card-text">Meditar, leer, ir al gym, desarrollar tu espiritualidad. Eres una mujer que se construye a sí misma. Eso es raro y es hermoso y es exactamente lo que eres tú.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">🍉</span>
+        <h3 class="card-title">Hasta en lo pequeño eres tú</h3>
+        <p class="card-text">Te encanta la sandía. No sé por qué, pero eso me parece de las cosas más tuyas que existen. En lo simple también estás completa.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">🔴</span>
+        <h3 class="card-title">Tu intensidad</h3>
+        <p class="card-text">No amas a medias. Nunca. Lo que sientes lo sientes con todo, y eso asusta al mundo común pero a mí me parece lo más vivo que he visto.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">🕯️</span>
+        <h3 class="card-title">Tu espiritualidad</h3>
+        <p class="card-text">Tienes una conexión con algo más grande que la vida cotidiana. Eres un alma diferente a las demás, y lo supe desde la primera vez que te vi de verdad.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">🎵</span>
+        <h3 class="card-title">Tu gusto musical</h3>
+        <p class="card-text">Métricas Frías te llega al alma. Tiene sentido — tú también eres poesía con actitud. Me hiciste una playlist y yo te hice una. Así somos: nos amamos en canciones.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">🤝</span>
+        <h3 class="card-title">Que me aguantas siendo imperfecto</h3>
+        <p class="card-text">Fui alguien que te hizo daño. Lo sé. Y tú, aun así, sigues aquí. Eso me hace querer ser mejor todos los días. Eres mi razón más honesta para mejorar.</p>
+      </div>
+
+      <div class="love-card">
+        <span class="card-icon">♾️</span>
+        <h3 class="card-title">El 43</h3>
+        <p class="card-text">Creamos un código solo nuestro. Un número que significa por siempre. Nadie más lo sabe. Nadie más tiene eso. Es solo tuyo y mío, como debe ser.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider">· · · ∞ · · ·</div>
+
+<!-- ── SYMBOLS ── -->
+<section id="symbols">
+  <div class="section-inner">
+    <p class="section-label">Nuestro lenguaje secreto</p>
+    <h2 class="section-title">Los símbolos<br><em>que nos definen</em></h2>
+
+    <div class="symbols-grid">
+      <div class="symbol-item">
+        <span class="symbol-glyph">💜</span>
+        <p class="symbol-name">Corazón Morado</p>
+        <p class="symbol-meaning">El color que nos representa a los dos. Ni blanco ni negro — los dos juntos hacen morado.</p>
+      </div>
+      <div class="symbol-item">
+        <span class="symbol-glyph">♾️</span>
+        <p class="symbol-name">Infinito</p>
+        <p class="symbol-meaning">Sin principio ni fin. Como lo que sentimos, que no cabe en el tiempo normal.</p>
+      </div>
+      <div class="symbol-item">
+        <span class="symbol-glyph" style="color:white;">⬜</span>
+        <p class="symbol-name">Blanco · Él</p>
+        <p class="symbol-meaning">La luz que busca algo a qué iluminar. Lo que soy yo en nuestra historia.</p>
+      </div>
+      <div class="symbol-item">
+        <span class="symbol-glyph" style="color:#444; text-shadow: 0 0 10px rgba(232,160,191,0.5);">⬛</span>
+        <p class="symbol-name">Negro · Ella</p>
+        <p class="symbol-meaning">El misterio que contiene todo. Lo que eres tú: profunda, hermosa, completa.</p>
+      </div>
+      <div class="symbol-item">
+        <span class="symbol-glyph">43</span>
+        <p class="symbol-name">Por siempre</p>
+        <p class="symbol-meaning">43ver. Solo lo sabemos nosotros dos. Y eso lo hace más real que cualquier contrato.</p>
+      </div>
+      <div class="symbol-item">
+        <span class="symbol-glyph">🧵</span>
+        <p class="symbol-name">El Hilo Rojo</p>
+        <p class="symbol-meaning">El hilo que nos une aunque la distancia, los padres, el mundo entero, intenten cortarlo. No pueden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MUSIC ── -->
+<section id="music">
+  <div class="section-inner" style="text-align:center;">
+    <p class="section-label" style="justify-content:center;">La banda sonora</p>
+    <h2 class="section-title">Princess Danna<br><em>Playlist</em></h2>
+    <p style="font-size:0.8rem; color:rgba(254,250,248,0.4); font-weight:300; margin-bottom:2rem; letter-spacing:0.05em;">
+      Las canciones que hice para ti · <em>mycinderella43ver 💜🐛</em>
+    </p>
+
+    <div class="spotify-wrap">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/4AT2zZ1RwxzsznL612Skop?utm_source=generator&theme=0"
+        width="100%"
+        height="500"
+        frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <p class="music-note">
+      "Te hice una playlist. Tú me hiciste una a mí.<br>
+      Así nos amamos — en canciones que dicen lo que a veces no caben en palabras."
+    </p>
+  </div>
+</section>
+
+<!-- ── CLOSING ── -->
+<section id="closing">
+  <div class="closing-inner">
+    <p class="closing-roman">
+      "Romeo y Julieta también creían que era imposible.<br>
+      Pero ningún balcón fue suficiente para que él dejara de amarla.<br>
+      Ningún padre, ninguna distancia, ningún mundo entero<br>
+      fue suficiente para apagar lo que era real.<br><br>
+      Esto es real.<br>
+      Tú eres real.<br>
+      Y yo estoy lejos ahora mismo<br>
+      solo para volver siendo alguien digno de ti."
+    </p>
+
+    <span class="heart-beat">💜</span>
+
+    <h2 class="closing-sig">43ver contigo,<br>mi Cinderella</h2>
+    <p class="closing-43">por siempre · 43ver · ♾️</p>
+  </div>
+</section>
+
+<script>
+  // ── PETALS ──
+  const container = document.getElementById('particles');
+  const colors = ['#e8a0bf','#c96a9a','#9b5de5','#c9a9f5','#f5d5e8'];
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.cssText = `
+      left:${Math.random()*100}%;
+      top:${Math.random()*-50}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      width:${4+Math.random()*5}px;
+      height:${4+Math.random()*5}px;
+      animation-duration:${8+Math.random()*14}s;
+      animation-delay:${Math.random()*10}s;
+      border-radius:${Math.random()>0.5?'50% 0 50% 0':'50%'};
+    `;
+    container.appendChild(p);
+  }
+
+  // ── SCROLL REVEAL ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.timeline-item, .love-card, .symbol-item').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
