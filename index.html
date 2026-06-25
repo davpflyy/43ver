@@ -554,7 +554,15 @@
     <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; font-weight:300;">Scroll</span>
   </div>
 </section>
-
+<!-- DAILY MESSAGE SECTION -->
+<section id="daily-message-section" style="padding: 2rem 1.5rem; text-align: center; background: var(--darker);">
+  <div class="section-inner" style="max-width: 600px;">
+    <p class="section-label" style="justify-content: center;">Para ti, hoy</p>
+    <div id="daily-message" style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: var(--rose-pale); line-height: 1.6; margin-top: 1rem;">
+      <!-- El mensaje se inyectará aquí -->
+    </div>
+  </div>
+</section>
 <!-- ── TIMELINE ── -->
 <section id="timeline">
   <div class="section-inner">
@@ -805,6 +813,28 @@
   <img id="modalImg">
 </div>
 <script>
+  const mensajes = [
+  "Solo espera, que cuando te vea, recuperaremos todo ese tiempo perdido.",
+  "Tu cuerpo, tu alma, y tu mente son míos, y los míos tuyos; somos 1.",
+  "Le voy a morder esos labios 2 horas seguidas, y no solo los de su boca... 😈💜",
+  "La distancia es solo el escenario donde estamos demostrando que lo nuestro es real.",
+  "Eres mi refugio, mi arte favorito y mi 43ver infinito.",
+  "Aunque no pueda tocarte hoy, mi alma está abrazada a la tuya en cada segundo.",
+  "Me estoy construyendo, me estoy puliendo, solo para ser el hombre que tu alma merece.",
+  "Cada día que pasa, mi amor por ti se vuelve más profundo, más real, más eterno.",
+  "No importa el mapa, ni los kilómetros; el hilo rojo nos mantiene exactamente donde debemos estar.",
+  "Eres el único sueño que quiero vivir despierto todos los días de mi vida."
+];
+
+function setDailyMessage() {
+  const date = new Date();
+  // Usamos el día del mes para rotar el mensaje
+  const index = (date.getDate() - 1) % mensajes.length; 
+  document.getElementById('daily-message').innerText = mensajes[index];
+}
+
+// Llamar a la función al cargar la página
+setDailyMessage();
   // ── PETALS ──
   const container = document.getElementById('particles');
   const colors = ['#e8a0bf','#c96a9a','#9b5de5','#c9a9f5','#f5d5e8'];
