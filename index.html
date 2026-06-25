@@ -462,6 +462,19 @@
     section { padding: 4rem 1.2rem; }
     .hero-nicks { gap: 0.4rem; }
   }
+  .counter-container {
+  text-align: center;
+  margin: 2rem 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+}
+#love-counter {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+}
 </style>
 </head>
 <body>
@@ -471,6 +484,10 @@
 
 <!-- ── HERO ── -->
 <section id="hero">
+  <div class="counter-container">
+  <p class="counter-label">Tiempo juntos</p>
+  <div id="love-counter"></div>
+</div>
   <div class="hero-bg"></div>
   <div class="hero-ornament">❧</div>
   <div class="hero-ornament">❧</div>
@@ -780,6 +797,22 @@
     el.style.transitionDelay = `${i * 0.08}s`;
     observer.observe(el);
   });
+  // ── CONTADOR DE TIEMPO ──
+  function updateCounter() {
+    const startDate = new Date('2023-11-05T00:00:00');
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById('love-counter').innerHTML = 
+      `${days} días, ${hours} h y ${minutes} m`;
+  }
+  
+  setInterval(updateCounter, 60000);
+  updateCounter();
 </script>
 </body>
 </html>
