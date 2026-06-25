@@ -800,7 +800,10 @@
     <p class="closing-43">por siempre · 43ver · ♾️</p>
   </div>
 </section>
-
+<!-- Modal para imágenes -->
+<div id="imageModal">
+  <img id="modalImg">
+</div>
 <script>
   // ── PETALS ──
   const container = document.getElementById('particles');
@@ -820,10 +823,6 @@
     `;
     container.appendChild(p);
   }
-<!-- Modal para imágenes -->
-<div id="imageModal">
-  <img id="modalImg">
-</div>
   // ── SCROLL REVEAL ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
