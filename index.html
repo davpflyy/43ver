@@ -462,18 +462,32 @@
     section { padding: 4rem 1.2rem; }
     .hero-nicks { gap: 0.4rem; }
   }
-  .counter-container {
+.counter-container {
   text-align: center;
   margin: 2rem 0;
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-color);
+  font-family: 'Cormorant Garamond', serif; /* Cambiamos a la fuente elegante */
+  color: var(--purple-light);
+  font-style: italic;
 }
+
+.counter-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: var(--rose);
+}
+
 #love-counter {
-  font-size: 1.5rem;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif; /* Montserrat para que los números sean claros */
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 1px solid var(--glass-border);
 }
 </style>
 </head>
